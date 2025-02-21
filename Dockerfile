@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Install ffmpeg, vim
 RUN apt-get update && \
-    apt-get install -y ffmpeg vim
+    apt-get install -y ffmpeg vim libcudnn9-cuda-12
 
 # Install WhisperX via pip
 RUN pip install --upgrade pip && \
