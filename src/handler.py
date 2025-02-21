@@ -16,7 +16,7 @@ def run_faster_whisper_job(job):
     url = job_input.get('url', "")
 
     print(f"🚧 Downloading audio from {url}...")
-    audio_path = download_files_from_urls(job['id'], [job_input['audio']])[0]
+    audio_path = download_files_from_urls(job['id'], [url])[0]
     print("✅ Audio downloaded")
     
     print("Transcribing...")
@@ -48,7 +48,7 @@ def run_faster_whisper_job(job):
             print("⚠️ File not found, skipping deletion")
     except Exception as e:
         print(f"❌ Error deleting file: {e}")
-        
+
     rp_cleanup.clean(['input_objects'])
 
     return output
